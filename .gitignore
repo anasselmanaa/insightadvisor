@@ -46,4 +46,5 @@ data/exports/
 # ========================
 # 📓 Jupyter
 # ========================
-.ipynb_checkpoints/
+.ipynb_checkpoints/data/
+test.pdf
