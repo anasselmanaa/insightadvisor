@@ -16,8 +16,8 @@ import AICopilot from './pages/AICopilot'
 import Reports from './pages/Reports'
 
 function PrivateRoute({ children }) {
-  const token = localStorage.getItem('token')
-  return token ? children : <Navigate to="/landing" />
+  const token = localStorage.getItem('token') || sessionStorage.getItem('token')
+  return token ? children : <Navigate to="/login" />
 }
 
 export default function App() {
@@ -26,10 +26,9 @@ export default function App() {
       <Toaster position="top-right" />
       <Routes>
         <Route path="/landing"  element={<Landing />} />
-        <Route path="/" element={<Navigate to="/landing" />} />
         <Route path="/login"    element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/app" element={<PrivateRoute><Layout /></PrivateRoute>}>
+        <Route path="/" element={<PrivateRoute><Layout /></PrivateRoute>}>
           <Route index element={<Upload />} />
           <Route path="dashboard"     element={<Dashboard />} />
           <Route path="clustering"    element={<Clustering />} />
