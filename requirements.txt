@@ -19,3 +19,4 @@ google-generativeai
 dowhy
 sqlalchemy
 aiofiles
+bcrypt==4.0.1
