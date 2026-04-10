@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #07070f;
+  color: #e2e8f0;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(99,102,241,0.3); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(99,102,241,0.6); }
+
+@layer components {
+  .glass {
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .glass-hover {
+    transition: all 0.2s ease;
+  }
+  .glass-hover:hover {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(99,102,241,0.3);
+    box-shadow: 0 0 20px rgba(99,102,241,0.1);
+  }
+  .gradient-text {
+    background: linear-gradient(135deg, #818cf8, #22d3ee);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .btn-primary {
+    @apply px-6 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium rounded-lg transition-all duration-200 hover:shadow-glow-sm active:scale-95;
+  }
+  .btn-ghost {
+    @apply px-6 py-2.5 text-slate-300 text-sm font-medium rounded-lg transition-all duration-200 active:scale-95 border border-white/10 hover:border-indigo-500/50 hover:text-white;
+  }
+  .card {
+    @apply glass glass-hover rounded-xl p-6 animate-fade-in;
+  }
+  .metric-card {
+    @apply glass rounded-xl p-5 border border-white/5 transition-all duration-300 hover:border-indigo-500/30 hover:shadow-glow-sm;
+  }
+  .page-title {
+    @apply text-2xl font-bold gradient-text;
+  }
+  .page-subtitle {
+    @apply text-slate-400 text-sm mt-1;
+  }
+  .input {
+    @apply w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-slate-200 text-sm placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/50 transition-all duration-200;
+  }
+  .label {
+    @apply block text-xs font-medium text-slate-400 mb-1.5 uppercase tracking-wider;
+  }
+  .badge-indigo { @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-indigo-500/20 text-indigo-300 border border-indigo-500/30; }
+  .badge-cyan   { @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-cyan-500/20 text-cyan-300 border border-cyan-500/30; }
+  .badge-green  { @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/20 text-emerald-300 border border-emerald-500/30; }
+  .badge-red    { @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-red-500/20 text-red-300 border border-red-500/30; }
+  .badge-amber  { @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-amber-500/20 text-amber-300 border border-amber-500/30; }
+  .shimmer-bg {
+    background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.03) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+  .divider { @apply border-t border-white/5 my-6; }
+}
+
+.light {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  background-color: #f1f5f9;
+}
+.light body {
+  background-color: #f1f5f9;
+  color: #1e293b;
+}
+.light .glass {
+  background: rgba(255,255,255,0.8);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+.light .glass-hover:hover {
+  background: rgba(255,255,255,0.95);
+  border-color: rgba(99,102,241,0.3);
+}
+.light .metric-card {
+  background: white;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+.light .card {
+  background: white;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+/* ── Light Mode ─────────────────────────────────────── */
+.light {
+  color-scheme: light;
+}
+.light body {
+  background-color: #f0f4ff !important;
+  color: #0f172a !important;
+}
+.light .glass {
+  background: rgba(255,255,255,0.95) !important;
+  border: 1px solid rgba(99,102,241,0.15) !important;
+  box-shadow: 0 2px 12px rgba(99,102,241,0.08) !important;
+}
+.light .glass-hover:hover {
+  background: rgba(255,255,255,1) !important;
+  border-color: rgba(99,102,241,0.4) !important;
+  box-shadow: 0 4px 20px rgba(99,102,241,0.15) !important;
+}
+.light .metric-card {
+  background: white !important;
+  border: 1px solid rgba(99,102,241,0.15) !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
+}
+.light .card {
+  background: white !important;
+  border: 1px solid rgba(99,102,241,0.15) !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
+}
+.light .input {
+  background: #f8faff !important;
+  border: 1px solid rgba(99,102,241,0.25) !important;
+  color: #0f172a !important;
+}
+.light .input::placeholder {
+  color: #94a3b8 !important;
+}
+.light .page-title {
+  background: linear-gradient(135deg, #4f46e5, #0891b2) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+.light .page-subtitle {
+  color: #475569 !important;
+}
+.light .badge-indigo {
+  background: rgba(99,102,241,0.12) !important;
+  color: #4338ca !important;
+  border-color: rgba(99,102,241,0.3) !important;
+}
+.light .badge-cyan {
+  background: rgba(6,182,212,0.12) !important;
+  color: #0e7490 !important;
+  border-color: rgba(6,182,212,0.3) !important;
+}
+.light .badge-green {
+  background: rgba(16,185,129,0.12) !important;
+  color: #065f46 !important;
+  border-color: rgba(16,185,129,0.3) !important;
+}
+.light .badge-red {
+  background: rgba(239,68,68,0.12) !important;
+  color: #991b1b !important;
+  border-color: rgba(239,68,68,0.3) !important;
+}
+.light .badge-amber {
+  background: rgba(245,158,11,0.12) !important;
+  color: #92400e !important;
+  border-color: rgba(245,158,11,0.3) !important;
+}
+.light .divider {
+  border-color: rgba(99,102,241,0.1) !important;
+}
+.light .shimmer-bg {
+  background: linear-gradient(90deg, #f0f4ff 25%, #e0e7ff 50%, #f0f4ff 75%) !important;
+}
+/* Force text colors in light mode */
+.light .text-slate-200 { color: #1e293b !important; }
+.light .text-slate-300 { color: #334155 !important; }
+.light .text-slate-400 { color: #475569 !important; }
+.light .text-slate-500 { color: #64748b !important; }
+.light .text-white     { color: #0f172a !important; }
+/* Keep colored text as-is */
+.light .text-indigo-400 { color: #4f46e5 !important; }
+.light .text-cyan-400   { color: #0891b2 !important; }
+.light .text-emerald-400 { color: #059669 !important; }
+.light .text-red-400    { color: #dc2626 !important; }
+.light .text-amber-400  { color: #d97706 !important; }
+.light .text-violet-400 { color: #7c3aed !important; }
+.light .text-pink-400   { color: #db2777 !important; }
+.light .text-green-400  { color: #16a34a !important; }
+.light .text-orange-400 { color: #ea580c !important; }
+.light .text-blue-400   { color: #2563eb !important; }
+.light .font-mono { color: #1e293b !important; }
+/* Charts in light mode */
+.light .recharts-cartesian-grid line { stroke: rgba(0,0,0,0.1) !important; }
+.light .recharts-text { fill: #475569 !important; }
