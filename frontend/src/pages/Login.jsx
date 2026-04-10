@@ -23,7 +23,7 @@ export default function Login() {
       const me = await api.get("/auth/me")
       localStorage.setItem("username", me.data.username)
       toast.success("Welcome back!")
-      navigate("/")
+      navigate("/dashboard")
     } catch (err) {
       toast.error(err.response?.data?.detail || "Login failed")
     } finally {
